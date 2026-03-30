@@ -43,7 +43,7 @@ export const experience: ExperienceItem[] = [
     stack: ["NestJS", "Next.js", "PostgreSQL", "Nginx"],
     highlights: [
       "Built Arisan Platform — end-to-end digital savings group management",
-      "Lead a team of 3 engineer: auth, payments, admin dashboard, mobile UI",
+      "Sole engineer to build: auth, payments, admin dashboard, mobile UI",
     ],
   },
   {
@@ -58,7 +58,7 @@ export const experience: ExperienceItem[] = [
     built: ["NovusNext Gen"],
     stack: ["Next.js", "OpenAI API", "Gemini API", "Seedance", "FFmpeg", "Docker"],
     highlights: [
-      "Sole engineer — designed, built, and deployed an AI video generation platform",
+      "Lead a team of 3 — designed, built, and deployed an AI video generation platform",
       "Integrated 4 AI APIs in a single automated pipeline",
       "Reduced video production time from 4 hours to 8 minutes",
     ],
