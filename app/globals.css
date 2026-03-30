@@ -1,26 +1,302 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-amiko), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-eb-garamond), ui-serif, serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ────────────────────────────────────────────────────────
+   LIGHT — VSCode Light+ inspired
+──────────────────────────────────────────────────────── */
+:root {
+  --radius: 0.75rem;
+
+  /* Page */
+  --background: #ffffff;
+  --foreground: #1e1e1e;
+
+  /* Components */
+  --card: #e8e8e8;
+  --card-foreground: #1e1e1e;
+  --muted: #ececec;
+  --muted-foreground: #6e7681;
+  --border: #d4d4d4;
+  --ring: #0078d4;
+
+  /* Accent colors — VSCode Light+ syntax palette */
+  --primary: #0078d4;          /* VS blue — links, active */
+  --primary-foreground: #ffffff;
+  --secondary: #267f99;        /* VS teal — types */
+  --secondary-foreground: #ffffff;
+  --accent: #af00db;           /* VS purple — keywords */
+  --accent-foreground: #ffffff;
+
+  /* Terminal (macOS window) — Light+ palette */
+  --term-bg: #f3f3f3;
+  --term-bg-bar: #e8e8e8;
+  --term-border: #d4d4d4;
+  --term-text: #1e1e1e;          /* VSCode Light+ default text */
+  --term-text-dim: #6e7681;      /* muted */
+  --term-text-faint: rgba(30,30,30,0.08);
+  --term-keyword: #0000ff;       /* VSCode Light+ blue — keywords */
+  --term-string: #a31515;        /* VSCode Light+ red — strings */
+  --term-func: #795e26;          /* VSCode Light+ brown — functions */
+  --term-type: #267f99;          /* VSCode Light+ teal — types */
+  --term-comment: #008000;       /* VSCode Light+ green — comments */
+  --term-number: #098658;        /* VSCode Light+ green — numbers */
+  --term-prompt: #0078d4;        /* prompt character color */
+
+  /* Matrix rain (hero bg) */
+  --rain-color: rgba(86,156,214,0.7);   /* blue rain in light */
+  --rain-head: rgba(180,220,255,0.9);
+  --rain-opacity: 0.07;
+
+  /* Profile frame */
+  --frame-sweep: rgba(86,156,214,0.6);
+  --frame-ring: rgba(86,156,214,0.25);
+  --frame-glow-lo: rgba(86,156,214,0.2);
+  --frame-glow-hi: rgba(86,156,214,0.45);
+
+  /* Misc */
+  --dot-grid-color: rgba(0,0,0,0.04);
+  --glow-color: rgba(0,120,212,0.12);
 }
+
+/* ────────────────────────────────────────────────────────
+   DARK — VSCode Dark+ inspired
+──────────────────────────────────────────────────────── */
+.dark {
+  /* Page */
+  --background: #1e1e1e;
+  --foreground: #d4d4d4;
+
+  /* Components */
+  --card: #252526;
+  --card-foreground: #d4d4d4;
+  --muted: #2d2d2d;
+  --muted-foreground: #808080;
+  --border: #3e3e42;
+  --ring: #0078d4;
+
+  /* Accent colors */
+  --primary: #569cd6;
+  --primary-foreground: #1e1e1e;
+  --secondary: #4ec9b0;
+  --secondary-foreground: #1e1e1e;
+  --accent: #c586c0;
+  --accent-foreground: #1e1e1e;
+
+  /* Terminal — Dark+ palette */
+  --term-bg: #1e1e1e;
+  --term-bg-bar: #323233;
+  --term-border: #454545;
+  --term-text: #d4d4d4;
+  --term-text-dim: #808080;
+  --term-text-faint: rgba(212,212,212,0.10);
+  --term-keyword: #569cd6;
+  --term-string: #ce9178;
+  --term-func: #dcdcaa;
+  --term-type: #4ec9b0;
+  --term-comment: #6a9955;
+  --term-number: #b5cea8;
+  --term-prompt: #569cd6;
+
+  /* Matrix rain */
+  --rain-color: rgba(86,156,214,0.55);
+  --rain-head: rgba(200,230,255,0.85);
+  --rain-opacity: 0.10;
+
+  /* Profile frame */
+  --frame-sweep: rgba(86,156,214,0.65);
+  --frame-ring: rgba(86,156,214,0.3);
+  --frame-glow-lo: rgba(86,156,214,0.25);
+  --frame-glow-hi: rgba(86,156,214,0.5);
+
+  /* Misc */
+  --dot-grid-color: rgba(255,255,255,0.03);
+  --glow-color: rgba(86,156,214,0.1);
+}
+
+/* ── Base reset ────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-amiko), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Nav link ──────────────────────────────────────────── */
+.nav-link {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--primary);
+  transition: color 0.2s;
+}
+.nav-link:hover,
+.nav-link[data-active="true"] { color: var(--primary); }
+.nav-link[data-active="true"] { text-decoration: underline; }
+
+/* ── Skip nav ──────────────────────────────────────────── */
+.skip-nav {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  z-index: 9999;
+  padding: 8px 12px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-nav:focus { top: 6px; }
+
+/* ── CRT scanlines (hero only) ─────────────────────────── */
+.scanline-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.025) 2px,
+    rgba(0,0,0,0.025) 4px
+  );
+}
+
+/* ── macOS traffic-light dots (hero title bar) ─────────── */
+.mac-dot-red    { background: #ff5f57; }
+.mac-dot-yellow { background: #febc2e; }
+.mac-dot-green  { background: #28c840; }
+
+/* ── Profile picture frame ─────────────────────────────── */
+.profile-hacker-frame {
+  position: relative;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.profile-hacker-frame::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    var(--frame-sweep) 50deg,
+    transparent 100deg
+  );
+  animation: radar-sweep 2.5s linear infinite;
+  z-index: 1;
+}
+.profile-hacker-frame::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px solid var(--frame-ring);
+  z-index: 2;
+}
+
+@keyframes radar-sweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes profile-glow {
+  0%, 100% { box-shadow: 0 0 6px var(--frame-glow-lo), 0 0 12px var(--frame-glow-lo); }
+  50%       { box-shadow: 0 0 16px var(--frame-glow-hi), 0 0 32px var(--frame-glow-lo); }
+}
+.profile-glow { animation: profile-glow 2s ease-in-out infinite; }
+
+/* ── Cursor blink ──────────────────────────────────────── */
+@keyframes blink {
+  0%, 50%  { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.cursor-blink { animation: blink 800ms step-end infinite; }
+
+@keyframes accent-blink {
+  0%, 50%  { opacity: 1; color: var(--term-keyword); }
+  51%, 100% { opacity: 0; }
+}
+.cursor-blink-accent { animation: accent-blink 800ms step-end infinite; }
+
+/* ── Float animations (background code) ───────────────── */
+@keyframes float-1 {
+  0%, 100% { transform: translateY(0px)   rotate(-2deg); }
+  50%      { transform: translateY(-20px) rotate(-2deg); }
+}
+@keyframes float-2 {
+  0%, 100% { transform: translateY(0px)   rotate(1deg); }
+  50%      { transform: translateY(-15px) rotate(1deg); }
+}
+@keyframes float-3 {
+  0%, 100% { transform: translateY(0px)   rotate(-1deg); }
+  50%      { transform: translateY(-25px) rotate(-1deg); }
+}
+.float-1 { animation: float-1 15s ease-in-out infinite; }
+.float-2 { animation: float-2 12s ease-in-out infinite 2s; }
+.float-3 { animation: float-3 18s ease-in-out infinite 5s; }
+
+/* ── Scroll indicator ──────────────────────────────────── */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0);   opacity: 0.5; }
+  50%      { transform: translateY(8px); opacity: 0.8; }
+}
+.bounce-slow { animation: bounce-slow 2s ease-in-out infinite; }
+
+/* ── Timeline pulse dot ────────────────────────────────── */
+@keyframes pulse-dot {
+  0%   { box-shadow: 0 0 0 0 var(--primary); }
+  70%  { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.pulse-dot { animation: pulse-dot 1s ease-out; }
+
+/* ── Reduce motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,0 +1,93 @@
+[
+  {
+    "id": "novusnextgen",
+    "title": "Novus Next Gen",
+    "subtitle": "AI Video Platform",
+    "oneLiner": "Automated AI video pipeline — GPT-4 script → Gemini TTS → Seedance video → FFmpeg stitch.",
+    "role": "Fullstack Engineer",
+    "type": "Contract",
+    "accent": "oklch(0.51 0.23 277)",
+    "gradientFrom": "#7c3aed",
+    "gradientTo": "#0891b2",
+    "glowColor": "rgba(124,58,237,0.15)",
+    "tech": ["NestJS", "Next.js", "OpenAI", "Gemini", "FFmpeg", "Docker"],
+    "featured": true,
+    "problem": "A content agency needed to generate dozens of branded AI videos per week. Manual editing was a bottleneck — each video took hours.",
+    "solution": "Built a fully automated pipeline: input a topic, get a finished video. GPT-4 writes the script, Gemini generates voice and stills, Seedance renders the video, FFmpeg stitches audio/video, and the result is delivered via Next.js dashboard.",
+    "impact": "Reduced per-video production time from ~4 hours to ~8 minutes. Single engineer (me) delivered in 8 weeks.",
+    "highlights": [
+      "Orchestrated 4 AI APIs in a single async pipeline",
+      "Built job queue with polling + webhook fallback",
+      "Docker Compose deployment on VPS with Nginx reverse proxy",
+      "Admin dashboard for batch video generation"
+    ]
+  },
+  {
+    "id": "pohon-kinerja",
+    "title": "Pohon Kinerja Pemda",
+    "subtitle": "Performance Tree",
+    "oneLiner": "Visual performance management system with hierarchical KPI trees for government employees.",
+    "role": "Fullstack Engineer",
+    "type": "Internal",
+    "accent": "oklch(0.70 0.12 182)",
+    "gradientFrom": "#0891b2",
+    "gradientTo": "#d97706",
+    "glowColor": "rgba(8,145,178,0.15)",
+    "tech": ["Spring Boot", "Next.js", "PostgreSQL", "Docker"],
+    "featured": false,
+    "problem": "A regional government office tracked employee performance through scattered spreadsheets. Reporting was quarterly, manual, and impossible to audit.",
+    "solution": "Built a tree-structured KPI system where managers cascade goals down to teams. Employees submit evidence, managers approve, and the system auto-calculates performance scores.",
+    "impact": "Replaced 100% spreadsheet workflow. Now used by 200+ employees for monthly reporting.",
+    "highlights": [
+      "Hierarchical tree data structure in PostgreSQL with closure tables",
+      "Role-based access: admin, manager, employee",
+      "Spring Boot + JDBC Template for raw SQL control"
+    ]
+  },
+  {
+    "id": "arisan-platform",
+    "title": "Arisan Platform",
+    "subtitle": "Social Savings App",
+    "oneLiner": "Digital rotating savings & credit association platform with automated payment tracking.",
+    "role": "Fullstack Engineer",
+    "type": "Freelance",
+    "accent": "oklch(0.77 0.16 70)",
+    "gradientFrom": "#d97706",
+    "gradientTo": "#e11d48",
+    "glowColor": "rgba(217,119,6,0.15)",
+    "tech": ["NestJS", "Next.js", "PostgreSQL", "PM2"],
+    "featured": false,
+    "problem": "Traditional arisan (rotating savings groups) are managed via WhatsApp and paper. Disputes over payment order and balances are common.",
+    "solution": "Full platform: group creation, member management, round scheduling, payment confirmation, and a transparent ledger that all members can audit.",
+    "impact": "Deployed for multiple arisan groups. Zero disputes since launch — all payment history is timestamped and immutable.",
+    "highlights": [
+      "NestJS with TypeORM — clean domain model for complex savings logic",
+      "Automated round-draw algorithm with audit log",
+      "Mobile-first Next.js UI — designed for non-technical users",
+      "JWT auth with refresh token rotation"
+    ]
+  },
+  {
+    "id": "e-kinerja",
+    "title": "E-Kinerja",
+    "subtitle": "Jira-like PM Tool",
+    "oneLiner": "Internal project management tool with Kanban boards, sprints, and time tracking for dev teams.",
+    "role": "Fullstack Engineer",
+    "type": "Internal",
+    "accent": "oklch(0.65 0.2 340)",
+    "gradientFrom": "#e11d48",
+    "gradientTo": "#7c3aed",
+    "glowColor": "rgba(225,29,72,0.15)",
+    "tech": ["Golang", "Next.js", "PostgreSQL", "Docker"],
+    "featured": true,
+    "problem": "The engineering team had no centralized way to track tasks, sprints, or who was working on what. Context was lost in Slack threads.",
+    "solution": "Built a full PM tool: projects, sprints, Kanban board with drag-and-drop, task assignments, comments, time logs, and a dashboard showing team velocity.",
+    "impact": "Adopted by 3 teams internally. Sprint velocity improved 30% in first quarter of use.",
+    "highlights": [
+      "Go Echo for high-performance API — handles concurrent drag-drop ops",
+      "Spring Boot service for report generation and scheduled summaries",
+      "Real-time board updates via Server-Sent Events",
+      "Multi-tenant: each team has isolated workspace"
+    ]
+  }
+]
