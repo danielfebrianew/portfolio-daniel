@@ -25,6 +25,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://danielfebrian.dev"),
   title: "Daniel Febrian Eka Wijaya — Fullstack Software Engineer",
   description:
     "Fullstack Software Engineer specializing in Spring Boot, NestJS, Go Echo, and Next.js. Shipped 4 production apps solo in under a year.",

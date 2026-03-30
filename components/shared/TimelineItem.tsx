@@ -65,18 +65,29 @@ export function TimelineItem({ item, index, isLast }: TimelineItemProps) {
           }}
         >
           {/* Terminal title bar */}
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.45rem 1rem", borderBottom: "1px solid var(--term-border)", background: "var(--term-bg-bar)" }}>
-            <span className="mac-dot-red"   style={{ width: 10, height: 10, borderRadius: "50%", display: "block", flexShrink: 0 }} aria-hidden="true" />
-            <span className="mac-dot-yellow" style={{ width: 10, height: 10, borderRadius: "50%", display: "block", flexShrink: 0 }} aria-hidden="true" />
-            <span className="mac-dot-green"  style={{ width: 10, height: 10, borderRadius: "50%", display: "block", flexShrink: 0 }} aria-hidden="true" />
-            <span style={{ flex: 1, textAlign: "center", fontFamily: "var(--font-space-mono), monospace", fontSize: "0.6rem", color: "var(--term-text-dim)" }}>
+          <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0.45rem 1rem", borderBottom: "1px solid var(--term-border)", background: "var(--term-bg-bar)" }}>
+            
+            {/* Bagian Kiri: Mac Dots */}
+            <div style={{ display: "flex", gap: "0.5rem", zIndex: 1 }}>
+              <span className="mac-dot-red"   style={{ width: 10, height: 10, borderRadius: "50%", display: "block", flexShrink: 0 }} aria-hidden="true" />
+              <span className="mac-dot-yellow" style={{ width: 10, height: 10, borderRadius: "50%", display: "block", flexShrink: 0 }} aria-hidden="true" />
+              <span className="mac-dot-green"  style={{ width: 10, height: 10, borderRadius: "50%", display: "block", flexShrink: 0 }} aria-hidden="true" />
+            </div>
+
+            {/* Bagian Tengah: Title (Absolute Center) */}
+            <span style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", textAlign: "center", fontFamily: "var(--font-space-mono), monospace", fontSize: "0.6rem", color: "var(--term-text-dim)", zIndex: 0 }}>
               {item.id}
             </span>
-            {item.current && (
-              <span style={{ fontFamily: "var(--font-space-mono), monospace", fontSize: "0.58rem", color: "var(--term-type)", background: "rgba(78,201,176,0.1)", border: "1px solid rgba(78,201,176,0.25)", borderRadius: "3px", padding: "1px 6px" }}>
-                ACTIVE
-              </span>
-            )}
+
+            {/* Bagian Kanan: Badge ACTIVE atau Kosong */}
+            <div style={{ zIndex: 1, display: "flex", justifyContent: "flex-end" }}>
+              {item.current && (
+                <span style={{ fontFamily: "var(--font-space-mono), monospace", fontSize: "0.58rem", color: "var(--term-type)", background: "rgba(78,201,176,0.1)", border: "1px solid rgba(78,201,176,0.25)", borderRadius: "3px", padding: "1px 6px" }}>
+                  ACTIVE
+                </span>
+              )}
+            </div>
+            
           </div>
 
           <div style={{ padding: "1rem 1.25rem 1.25rem" }}>

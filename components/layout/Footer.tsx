@@ -37,7 +37,7 @@ export function Footer() {
         </div>
 
         <p style={{ fontFamily: "var(--font-space-mono), monospace", fontSize: "0.65rem", color: "var(--muted-foreground)", margin: 0 }}>
-          © {year} Daniel Febrian Eka Wijaya. Built with Next.js.
+          Copyright &copy; {year} Daniel. All Rights Reserved.
         </p>
       </div>
     </footer>

@@ -53,7 +53,7 @@ export const experience: ExperienceItem[] = [
     role: "Fullstack Software Engineer",
     type: "Contract",
     startDate: "Dec 2025",
-    endDate: "Feb 2025",
+    endDate: "Feb 2026",
     current: false,
     built: ["NovusNext Gen"],
     stack: ["Next.js", "OpenAI API", "Gemini API", "Seedance", "FFmpeg", "Docker"],
