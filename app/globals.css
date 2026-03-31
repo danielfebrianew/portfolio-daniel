@@ -53,13 +53,13 @@
   --term-text: #1e1e1e;          /* VSCode Light+ default text */
   --term-text-dim: #6e7681;      /* muted */
   --term-text-faint: rgba(30,30,30,0.08);
-  --term-keyword: #0000ff;       /* VSCode Light+ blue — keywords */
-  --term-string: #a31515;        /* VSCode Light+ red — strings */
-  --term-func: #795e26;          /* VSCode Light+ brown — functions */
-  --term-type: #267f99;          /* VSCode Light+ teal — types */
-  --term-comment: #008000;       /* VSCode Light+ green — comments */
-  --term-number: #098658;        /* VSCode Light+ green — numbers */
-  --term-prompt: #0078d4;        /* prompt character color */
+  --term-keyword: #4472c4;       /* pastel blue — keywords */
+  --term-string: #c0504d;        /* pastel rose — strings */
+  --term-func: #8b6914;          /* pastel amber — functions */
+  --term-type: #2e86ab;          /* pastel teal — types */
+  --term-comment: #4a9860;       /* pastel green — comments */
+  --term-number: #2e8b57;        /* pastel sea green — numbers */
+  --term-prompt: #3a7abf;        /* pastel blue — prompt */
 
   /* Matrix rain (hero bg) */
   --rain-color: rgba(86,156,214,0.7);   /* blue rain in light */

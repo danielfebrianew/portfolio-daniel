@@ -54,15 +54,15 @@ export function Experience() {
                   onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.borderColor = "var(--term-border)"; (e.currentTarget as HTMLDivElement).style.boxShadow = "none"; }}
                 >
                   {/* Title bar */}
-                  <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.45rem 1rem", borderBottom: "1px solid var(--term-border)", background: "var(--term-bg-bar)" }}>
+                  <div style={{ position: "relative", display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.45rem 1rem", borderBottom: "1px solid var(--term-border)", background: "var(--term-bg-bar)" }}>
                     <span className="mac-dot-red"   style={{ width: 10, height: 10, borderRadius: "50%", display: "block", flexShrink: 0 }} aria-hidden="true" />
                     <span className="mac-dot-yellow" style={{ width: 10, height: 10, borderRadius: "50%", display: "block", flexShrink: 0 }} aria-hidden="true" />
                     <span className="mac-dot-green"  style={{ width: 10, height: 10, borderRadius: "50%", display: "block", flexShrink: 0 }} aria-hidden="true" />
-                    <span style={{ flex: 1, textAlign: "center", fontFamily: "var(--font-space-mono), monospace", fontSize: "0.6rem", color: "var(--term-text-dim)" }}>
+                    <span style={{ position: "absolute", left: 0, right: 0, textAlign: "center", fontFamily: "var(--font-space-mono), monospace", fontSize: "0.6rem", color: "var(--term-text-dim)", pointerEvents: "none" }}>
                       {exp.id}
                     </span>
                     {exp.current && (
-                      <span style={{ fontFamily: "var(--font-space-mono), monospace", fontSize: "0.58rem", color: "var(--term-type)", background: "rgba(78,201,176,0.1)", border: "1px solid rgba(78,201,176,0.25)", borderRadius: "3px", padding: "1px 6px" }}>
+                      <span style={{ marginLeft: "auto", fontFamily: "var(--font-space-mono), monospace", fontSize: "0.58rem", color: "var(--term-type)", background: "rgba(78,201,176,0.1)", border: "1px solid rgba(78,201,176,0.25)", borderRadius: "3px", padding: "1px 6px" }}>
                         ACTIVE
                       </span>
                     )}

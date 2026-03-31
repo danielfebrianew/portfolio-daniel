@@ -13,7 +13,6 @@ export function Contact() {
         padding: "clamp(64px, 8vw, 96px) 1.5rem",
         position: "relative",
         zIndex: 1,
-        borderTop: "1px solid var(--border)",
       }}
     >
       <div style={{ maxWidth: "1152px", margin: "0 auto" }}>
@@ -45,11 +44,11 @@ export function Contact() {
             }}
           >
             {/* title bar */}
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.5rem 1rem", borderBottom: "1px solid var(--term-border)", background: "var(--term-bg-bar)" }}>
+            <div style={{ position: "relative", display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.5rem 1rem", borderBottom: "1px solid var(--term-border)", background: "var(--term-bg-bar)" }}>
               <span className="mac-dot-red"   style={{ width: 10, height: 10, borderRadius: "50%", display: "block", flexShrink: 0 }} aria-hidden="true" />
               <span className="mac-dot-yellow" style={{ width: 10, height: 10, borderRadius: "50%", display: "block", flexShrink: 0 }} aria-hidden="true" />
               <span className="mac-dot-green"  style={{ width: 10, height: 10, borderRadius: "50%", display: "block", flexShrink: 0 }} aria-hidden="true" />
-              <span style={{ flex: 1, textAlign: "center", fontFamily: "var(--font-space-mono), monospace", fontSize: "0.62rem", color: "var(--term-text-dim)" }}>
+              <span style={{ position: "absolute", left: 0, right: 0, textAlign: "center", fontFamily: "var(--font-space-mono), monospace", fontSize: "0.62rem", color: "var(--term-text-dim)", pointerEvents: "none" }}>
                 contact.sh
               </span>
             </div>

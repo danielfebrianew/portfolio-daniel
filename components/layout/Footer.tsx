@@ -9,7 +9,7 @@ export function Footer() {
 
   return (
     <footer
-      style={{ borderTop: "1px solid var(--border)", padding: "1.5rem", background: "var(--background)" }}
+      style={{ borderTop: "1px solid var(--border)", padding: "1.5rem", background: "color-mix(in srgb, var(--background) 92%, transparent)", backdropFilter: "blur(20px)" }}
       role="contentinfo"
     >
       <div style={{ maxWidth: "1152px", margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem", textAlign: "center" }}>
