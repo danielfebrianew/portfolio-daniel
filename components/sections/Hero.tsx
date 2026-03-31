@@ -1,12 +1,131 @@
 "use client";
 
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, MapPin, Briefcase } from "lucide-react";
 import Image from "next/image";
 import { GithubIcon } from "@/components/shared/GithubIcon";
 import { TypeWriter } from "@/components/animated/TypeWriter";
 import { personal } from "@/data/personal";
+
+const mono = "var(--font-space-mono), monospace";
+
+function ProfileModal({ onClose }: { onClose: () => void }) {
+  return createPortal(
+    <>
+      {/* Backdrop */}
+      <motion.div
+        key="profile-backdrop"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+        style={{ position: "fixed", inset: 0, zIndex: 9998, background: "rgba(0,0,0,0.75)", backdropFilter: "blur(8px)" }}
+      />
+
+      {/* Positioning wrapper — plain div so framer-motion doesn't touch overflow */}
+      <div
+        style={{
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          zIndex: 9999,
+          width: "min(480px, 92vw)",
+          maxHeight: "calc(100vh - 100px)",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+      {/* Window */}
+      <motion.div
+        key="profile-window"
+        initial={{ opacity: 0, scale: 0.93 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.93 }}
+        transition={{ duration: 0.22, ease: "easeOut" }}
+        style={{
+          overflowY: "auto",
+          background: "var(--term-bg)",
+          border: "1px solid var(--term-border)",
+          borderRadius: "0.875rem",
+          boxShadow: "0 32px 80px rgba(0,0,0,0.5)",
+        }}
+      >
+        {/* Title bar */}
+        <div style={{ position: "relative", display: "flex", alignItems: "center", gap: "0.5rem", padding: "0.6rem 1rem", borderBottom: "1px solid var(--term-border)", background: "var(--term-bg-bar)" }}>
+          <button
+            onClick={onClose}
+            aria-label="Close"
+            style={{ width: 12, height: 12, borderRadius: "50%", background: "#ff5f57", border: "none", cursor: "pointer", display: "block", flexShrink: 0, padding: 0 }}
+          />
+          <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#febc2e", display: "block", flexShrink: 0 }} />
+          <span style={{ width: 12, height: 12, borderRadius: "50%", background: "#28c840", display: "block", flexShrink: 0 }} />
+          <span style={{ position: "absolute", left: 0, right: 0, textAlign: "center", fontFamily: mono, fontSize: "0.6rem", color: "var(--term-text-dim)", pointerEvents: "none" }}>
+            daniel.profile
+          </span>
+        </div>
+
+        {/* Avatar */}
+        <div style={{ padding: "1.25rem 1.25rem 1.25rem" }}>
+          <div style={{ marginBottom: "0.625rem" }}>
+            <Image
+              src="/profile-picture.png"
+              alt="Daniel Febrian Eka Wijaya"
+              width={72}
+              height={72}
+              priority
+              style={{ borderRadius: "10px", objectFit: "cover", display: "block", border: "3px solid var(--term-bg)", boxShadow: "0 4px 16px rgba(0,0,0,0.25)" }}
+            />
+          </div>
+
+          {/* Name & role */}
+          <h2 style={{ fontFamily: "var(--font-eb-garamond), serif", fontSize: "1.4rem", fontWeight: 700, color: "var(--term-text)", margin: "0 0 0.15rem", lineHeight: 1.15 }}>
+            Daniel Febrian Eka Wijaya
+          </h2>
+          <p style={{ fontFamily: mono, fontSize: "0.68rem", color: "var(--term-type)", margin: "0 0 0.75rem" }}>
+            {personal.role}
+          </p>
+
+          {/* Meta rows */}
+          <div style={{ display: "grid", gap: "0.3rem", marginBottom: "0.875rem" }}>
+            {[
+              { icon: <MapPin size={11} />, text: personal.location },
+              { icon: <Briefcase size={11} />, text: personal.availability },
+              { icon: <GithubIcon size={11} />, text: "github.com/danielfebrianew" },
+            ].map(({ icon, text }) => (
+              <div key={text} style={{ display: "flex", alignItems: "center", gap: "0.45rem", fontFamily: mono, fontSize: "0.62rem", color: "var(--term-text-dim)" }}>
+                <span style={{ color: "var(--term-keyword)", flexShrink: 0 }}>{icon}</span>
+                {text}
+              </div>
+            ))}
+          </div>
+
+          {/* Bio */}
+          <div style={{ background: "rgba(255,255,255,0.03)", border: "1px solid var(--term-border)", borderRadius: "0.5rem", padding: "0.75rem 0.875rem", marginBottom: "0.875rem" }}>
+            <p style={{ fontFamily: mono, fontSize: "0.58rem", color: "var(--term-comment)", margin: "0 0 0.35rem", textTransform: "uppercase", letterSpacing: "0.08em" }}>// bio</p>
+            <p style={{ fontFamily: mono, fontSize: "0.68rem", color: "var(--term-text)", lineHeight: 1.7, margin: 0 }}>
+              {personal.description}
+            </p>
+          </div>
+
+          {/* CTA */}
+          <a
+            href={`mailto:${personal.email}`}
+            style={{ display: "flex", alignItems: "center", justifyContent: "center", fontFamily: mono, fontSize: "0.68rem", fontWeight: 700, color: "var(--primary-foreground)", background: "var(--primary)", borderRadius: "6px", padding: "0.5rem 1rem", textDecoration: "none", transition: "opacity 0.2s" }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = "0.85")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.opacity = "1")}
+          >
+            ./contact-me
+          </a>
+        </div>
+      </motion.div>
+      </div>
+    </>,
+    document.body
+  );
+}
 
 const SKILLS = ["springboot", "nest-js", "golang", "next-js", "mysql", "postgresql", "docker"];
 const LINES = ["whoami", "cat bio.md", "ls skills/"];
@@ -19,6 +138,7 @@ const lineReveal = (done: boolean, delay = 0) => ({
 
 export function Hero() {
   const [completedLines, setCompletedLines] = useState<number[]>([]);
+  const [profileOpen, setProfileOpen] = useState(false);
   const allDone = completedLines.length >= LINES.length;
 
   const lineComplete = (i: number) =>
@@ -41,6 +161,8 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.45, delay: 0.2 }}
+          onClick={() => setProfileOpen(true)}
+          whileHover={{ scale: 1.01 }}
           style={{
             background: "var(--term-bg)",
             borderRadius: "0.75rem",
@@ -49,6 +171,16 @@ export function Hero() {
             textAlign: "left",
             overflow: "hidden",
             boxShadow: "0 20px 60px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)",
+            cursor: "pointer",
+            transition: "border-color 0.2s, box-shadow 0.2s",
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLDivElement).style.borderColor = "var(--primary)";
+            (e.currentTarget as HTMLDivElement).style.boxShadow = "0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px var(--primary)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLDivElement).style.borderColor = "var(--term-border)";
+            (e.currentTarget as HTMLDivElement).style.boxShadow = "0 20px 60px rgba(0,0,0,0.35), 0 2px 8px rgba(0,0,0,0.2)";
           }}
         >
           {/* macOS title bar */}
@@ -208,6 +340,11 @@ export function Hero() {
       >
         <ChevronDown size={22} />
       </motion.div>
+
+      {/* Profile modal */}
+      <AnimatePresence>
+        {profileOpen && <ProfileModal onClose={() => setProfileOpen(false)} />}
+      </AnimatePresence>
     </section>
   );
 }
