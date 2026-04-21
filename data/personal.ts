@@ -13,7 +13,7 @@ export const personal = {
   availability: "Full-time · Contract · Freelance · Remote worldwide",
   email: "danielfebrian61@gmail.com",
   github: "https://github.com/danielfebrianew",
-  cv: "/cv/Daniel_Febrian_CV.pdf",
+  cv: "/cv/CV_DANIEL_FEBRIAN_EW.pdf",
   stats: [
     { value: "4+", label: "Production Apps", countTo: 4, prefix: "", suffix: "+" },
     { value: "4", label: "Tech Stacks", countTo: 4, prefix: "", suffix: "" },
