@@ -17,6 +17,10 @@ export interface Project {
   solution: string;
   impact: string;
   highlights: string[];
+  images?: {
+    src: string;
+    alt: string;
+  }[];
 }
 
 export const projects: Project[] = projectsData as Project[];
