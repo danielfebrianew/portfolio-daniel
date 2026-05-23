@@ -62,6 +62,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${amiko.variable} ${ebGaramond.variable} ${spaceMono.variable} h-full antialiased`}
     >
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>{children}</ThemeProvider>
       </body>

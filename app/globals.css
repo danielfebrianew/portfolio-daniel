@@ -75,6 +75,7 @@
   /* Misc */
   --dot-grid-color: rgba(0,0,0,0.04);
   --glow-color: rgba(0,120,212,0.12);
+  --devicon-invert: none;
 }
 
 /* ────────────────────────────────────────────────────────
@@ -130,6 +131,7 @@
   /* Misc */
   --dot-grid-color: rgba(255,255,255,0.03);
   --glow-color: rgba(86,156,214,0.1);
+  --devicon-invert: invert(1) brightness(1.2);
 }
 
 /* ── Base reset ────────────────────────────────────────── */
