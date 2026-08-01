@@ -22,11 +22,12 @@ export const experience: ExperienceItem[] = [
     startDate: "Nov 2025",
     endDate: "Present",
     current: true,
-    built: ["Pohon Kinerja", "E-Kinerja"],
+    built: ["Pohon Kinerja", "E-Kinerja", "Manajemen Risiko"],
     stack: ["Spring Boot", "Golang Echo", "Next.js", "MySQL", "PostgreSQL", "Docker"],
     highlights: [
       "Built Pohon Kinerja — hierarchical KPI system used by 200+ government employees",
       "Built E-Kinerja — internal Jira-like PM tool adopted by 3 engineering teams",
+      "Built Manajemen Risiko — risk & fraud management platform for local government",
       "Deployed with Docker Compose on company VPS",
     ],
   },

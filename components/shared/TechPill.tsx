@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Bot, Sparkles, Activity, Film } from "lucide-react";
+import { Bot, Sparkles, Activity, Film, AppWindow } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface TechPillProps {
@@ -39,12 +39,16 @@ const ICON_MAP: Record<string, IconMeta> = {
   "linux":       { icon: "linux-plain",          color: "#FCC624" },
   "java":        { icon: "java-plain",           color: "#E76F00" },
   "googlecloud": { icon: "googlecloud-plain",    color: "#4285F4" },
+  "python":      { icon: "python-plain",         color: "#3776AB" },
+  "fastapi":     { icon: "fastapi-plain",        color: "#009688" },
+  "sqlite":      { icon: "sqlite-plain",         color: "#003B57" },
 
   // Lucide fallbacks for techs devicon doesn't ship
   "pm2":    { fallback: <Activity size={13} strokeWidth={2.2} />, color: "#2B037A" },
   "openai": { fallback: <Bot size={13} strokeWidth={2.2} />,      color: "#10A37F" },
   "gemini": { fallback: <Sparkles size={13} strokeWidth={2.2} />, color: "#4285F4" },
   "ffmpeg": { fallback: <Film size={13} strokeWidth={2.2} />,     color: "#5CB85C" },
+  "wails":  { fallback: <AppWindow size={13} strokeWidth={2.2} />, color: "#DF0000" },
 };
 
 export function TechPill({ name, className }: TechPillProps) {

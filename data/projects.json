@@ -1,5 +1,32 @@
 [
   {
+    "id": "auto-clipper",
+    "title": "Auto Clipper",
+    "subtitle": "Desktop Video Tool",
+    "oneLiner": "Desktop app that turns long YouTube videos into ready-to-post vertical clips automatically.",
+    "role": "Fullstack Engineer",
+    "type": "Freelance",
+    "accent": "oklch(0.62 0.19 145)",
+    "gradientFrom": "#059669",
+    "gradientTo": "#7c3aed",
+    "glowColor": "rgba(5,150,105,0.15)",
+    "tech": ["Go", "Wails", "React", "TypeScript", "Python", "FastAPI", "SQLite", "FFmpeg", "Gemini"],
+    "featured": true,
+    "problem": "Turning a long-form video into short vertical clips is tedious manual work — finding the good moments, cutting, reframing to 9:16, keeping the speaker in frame, and burning in subtitles for every single clip.",
+    "solution": "Built a desktop app that does the whole pipeline: download the video, pull the transcript, let Gemini pick the interesting moments, then cut, reframe around the speaker's face, burn subtitles, and render. Go handles orchestration and state, while an embedded Python worker does everything touching media or ML.",
+    "impact": "A passion project that turned a multi-hour manual edit into a few clicks. Ships as a single binary — the Python worker is embedded and extracted on first run.",
+    "highlights": [
+      "Wails v2 desktop app — Go backend with a React + TypeScript frontend in one binary",
+      "Python worker (FastAPI) embedded in the binary: yt-dlp, faster-whisper, YOLOv8-face, FFmpeg",
+      "Automatic face tracking and 9:16 reframing that follows the active speaker",
+      "Gemini picks clip ranges from the transcript, scored against an engagement heatmap",
+      "Built-in overlay and cover editors, plus AES-256 encrypted settings and SQLite storage"
+    ],
+    "images": [
+      { "src": "/autoclipper-app.png", "alt": "Auto Clipper desktop app workspace" }
+    ]
+  },
+  {
     "id": "novusnextgen",
     "title": "Novus Next Gen",
     "subtitle": "AI Video Platform",
