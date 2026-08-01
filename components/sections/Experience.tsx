@@ -125,7 +125,7 @@ export function Experience() {
                   </span>
                 </div>
                 <div style={{ padding: "1rem 1.25rem" }}>
-                  <h3 style={{ fontFamily: "var(--font-space-mono), monospace", fontSize: "0.95rem", fontWeight: 700, color: "var(--term-text-dim)", margin: "0 0 0.2rem" }}>
+                  <h3 style={{ fontFamily: "var(--font-space-mono), monospace", fontSize: "0.95rem", fontWeight: 700, color: "var(--term-type)", margin: "0 0 0.2rem" }}>
                     {education.school}
                   </h3>
                   <p style={{ fontFamily: "var(--font-space-mono), monospace", fontSize: "0.68rem", color: "var(--term-comment)", margin: 0 }}>

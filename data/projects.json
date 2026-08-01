@@ -14,12 +14,15 @@
     "featured": true,
     "problem": "A content agency needed to generate dozens of branded AI videos per week. Manual editing was a bottleneck — each video took hours.",
     "solution": "Built a fully automated pipeline: input a topic, get a finished video. GPT-4 writes the script, Gemini generates voice and stills, Seedance renders the video, FFmpeg stitches audio/video, and the result is delivered via Next.js dashboard.",
-    "impact": "Reduced per-video production time from ~4 hours to ~8 minutes. Single engineer (me) delivered in 8 weeks.",
+    "impact": "Reduced per-video production time from ~4 hours to ~8 minutes. In a team of 2 delivered this project in 12 weeks.",
     "highlights": [
       "Orchestrated 4 AI APIs in a single async pipeline",
       "Built job queue with polling + webhook fallback",
       "Docker Compose deployment on VPS with Nginx reverse proxy",
       "Admin dashboard for batch video generation"
+    ],
+    "images": [
+      { "src": "/novus-next-gen.png", "alt": "Novus Next Gen AI video platform dashboard" }
     ]
   },
   {
@@ -40,8 +43,11 @@
     "impact": "Replaced 100% spreadsheet workflow. Now used by 200+ employees for monthly reporting.",
     "highlights": [
       "Hierarchical tree data structure in PostgreSQL with closure tables",
-      "Role-based access: admin, manager, employee",
+      "Role-based access: super admin, admin, asn lvl 1, asn lvl 2, asn lvl 3",
       "Spring Boot + JDBC Template for raw SQL control"
+    ],
+    "images": [
+      { "src": "/pohon-kinerja.jpeg", "alt": "Pohon Kinerja Pemda performance tree dashboard" }
     ]
   },
   {
@@ -65,13 +71,16 @@
       "Automated round-draw algorithm with audit log",
       "Mobile-first Next.js UI — designed for non-technical users",
       "JWT auth with refresh token rotation"
+    ],
+    "images": [
+      { "src": "/arisan-platform.png", "alt": "Arisan Platform savings dashboard" }
     ]
   },
   {
     "id": "e-kinerja",
     "title": "E-Kinerja",
     "subtitle": "Jira-like PM Tool",
-    "oneLiner": "Internal project management tool with Kanban boards, sprints, and time tracking for dev teams.",
+    "oneLiner": "Internal project management tool with sprints and time tracking for dev teams.",
     "role": "Fullstack Engineer",
     "type": "Internal",
     "accent": "oklch(0.65 0.2 340)",
@@ -81,13 +90,43 @@
     "tech": ["Golang", "Next.js", "PostgreSQL", "Docker"],
     "featured": true,
     "problem": "The engineering team had no centralized way to track tasks, sprints, or who was working on what. Context was lost in Slack threads.",
-    "solution": "Built a full PM tool: projects, sprints, Kanban board with drag-and-drop, task assignments, comments, time logs, and a dashboard showing team velocity.",
+    "solution": "Built a full PM tool: projects, sprints, task lists with task assignments, comments, time logs, and a dashboard showing team velocity.",
     "impact": "Adopted by 3 teams internally. Sprint velocity improved 30% in first quarter of use.",
     "highlights": [
-      "Go Echo for high-performance API — handles concurrent drag-drop ops",
-      "Spring Boot service for report generation and scheduled summaries",
-      "Real-time board updates via Server-Sent Events",
+      "Go Echo for high-performance API — handles concurrent task updates",
+      "Go service for report generation and scheduled summaries",
+      "Real-time task updates via Server-Sent Events",
       "Multi-tenant: each team has isolated workspace"
+    ],
+    "images": [
+      { "src": "/e-kinerja.jpeg", "alt": "E-Kinerja sprint and task dashboard" }
+    ]
+  },
+  {
+    "id": "manajemen-risiko",
+    "title": "Manajemen Risiko",
+    "subtitle": "Risk & Fraud Management",
+    "oneLiner": "End-to-end risk & fraud management platform for local government — from goal-setting to monitoring, in one system.",
+    "role": "Fullstack Engineer",
+    "type": "Internal",
+    "accent": "oklch(0.60 0.18 25)",
+    "gradientFrom": "#dc2626",
+    "gradientTo": "#0891b2",
+    "glowColor": "rgba(220,38,38,0.15)",
+    "tech": ["Next.js", "TypeScript", "Spring Boot", "OpenAI", "PostgreSQL", "Docker"],
+    "featured": true,
+    "problem": "A regional government agency had no unified system for managing organizational risk or fraud exposure. Risk data, performance reviews, and compliance reporting lived in disconnected spreadsheets, making audits slow and fraud hard to catch early.",
+    "solution": "Built a full risk management lifecycle in one platform: objective setting, risk identification, analysis, treatment, and monitoring, plus dedicated fraud risk handling, performance scoring across individual/agency/regional levels, master data management, and e-government (SPBE) reporting — backed by a Spring Boot + JPA API with session-based authentication.",
+    "impact": "Consolidated a fragmented, manual risk process into a single auditable system, giving agency leadership real-time visibility into risk posture and fraud indicators instead of quarterly spreadsheet reviews.",
+    "highlights": [
+      "Full risk lifecycle: objectives → identification → analysis → treatment → monitoring",
+      "Dedicated fraud risk management module for government compliance",
+      "Multi-level performance scoring — individual, agency (OPD), and regional government",
+      "Spring Boot + JPA REST API with session-based auth via X-Session-Id header",
+      "Next.js 16 App Router frontend with React 19 and Tailwind CSS v4"
+    ],
+    "images": [
+      { "src": "/manajemen-risiko.jpeg", "alt": "Manajemen Risiko dashboard" }
     ]
   }
 ]

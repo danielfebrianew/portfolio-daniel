@@ -61,11 +61,6 @@
   --term-number: #2e8b57;        /* pastel sea green — numbers */
   --term-prompt: #3a7abf;        /* pastel blue — prompt */
 
-  /* Matrix rain (hero bg) */
-  --rain-color: rgba(86,156,214,0.7);   /* blue rain in light */
-  --rain-head: rgba(180,220,255,0.9);
-  --rain-opacity: 0.07;
-
   /* Profile frame */
   --frame-sweep: rgba(86,156,214,0.6);
   --frame-ring: rgba(86,156,214,0.25);
@@ -116,11 +111,6 @@
   --term-comment: #6a9955;
   --term-number: #b5cea8;
   --term-prompt: #569cd6;
-
-  /* Matrix rain */
-  --rain-color: rgba(86,156,214,0.55);
-  --rain-head: rgba(200,230,255,0.85);
-  --rain-opacity: 0.10;
 
   /* Profile frame */
   --frame-sweep: rgba(86,156,214,0.65);
